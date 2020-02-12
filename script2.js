@@ -86,12 +86,19 @@ const islandTestC = function (array) {
     // Outer array
     for (i = 0; i < array.length; i++){
         for (j = 0; j < array[i].length; j++) {
+            
+            landCheck(array[i])
+
+            console.log("array[i] is:", array[i])
+            // console.log("array[i][j] is:", array[i][j])
+            // console.log("array[i][1] is:", array[i][1])
+            
             // check for 1s in an array
-            if (array[i][j] === 0) {
-                return "You have reached water"
-            } else {
-                // islandTestC()
-            }
+            // if (array[i][j] === 0) {
+            //     return "You have reached water"
+            // } else {
+            //     // islandTestC()
+            // }
 
         }
 
@@ -104,9 +111,40 @@ const islandTestC = function (array) {
     // Consider all 1's in an array AND in adjacent arrays to be a single land mass
 }
 
+const landCheck = function (arrayValue) {
+    console.log("arrayValue is:", arrayValue[1])
+    const landCount = 0
+    const rightValue = 0
+    if (arrayValue[i][j] === 0 ) {
+        console.log("Recursive function result is: ", landCount.length)
+        return landCount.length
+    } else {
+        landCheck(arrayValue[i][rightValue + 1])
+    }
+}
+
+console.log(islandTestC(islandArray))
+
 // IF recursion is to be made the following basics must be adhered to:
-// It is an if statement
+// It is an if-statement
 // The first condition of the if statement will STOP the recursion (STOP condition)
 // The final condition will call itself.
 
 // The first recursion function is to keep counting unknown until an uknown number of 1s is followed by a 0
+
+
+// ===============
+
+// First find a (recursive) way to get all the 1s in a row.  What is the difference?
+//// 
+
+
+// Second: pass that through a matchAll and store as a count
+// console.log([...getArticle.matchAll("nada")])
+// console.log(array[i].matchAll(1))
+
+// start with first property.
+// If it's a 0, move on.
+// If it's a 1 keep counting until you hit a zero.
+// as you are counting, push it into an array.
+// from the location of the first 1 + array.length should get you first part of land mass.
