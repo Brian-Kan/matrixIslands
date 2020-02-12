@@ -85,22 +85,28 @@ const islandTestC = function (array) {
 
     // Outer array
     for (i = 0; i < array.length; i++){
-        for (j = 0; j < array[i].length; j++) {
-            
-            landCheck(array[i])
 
-            console.log("array[i] is:", array[i])
-            // console.log("array[i][j] is:", array[i][j])
-            // console.log("array[i][1] is:", array[i][1])
-            
-            // check for 1s in an array
-            // if (array[i][j] === 0) {
-            //     return "You have reached water"
-            // } else {
-            //     // islandTestC()
-            // }
 
-        }
+        // landCheck(array[i], 0)
+
+
+
+        // for (j = 0; j < array[i].length; j++) {
+            
+        //     landCheck(array, i, j)
+
+        //     console.log("array[i] is:", array[i])
+        //     // console.log("array[i][j] is:", array[i][j])
+        //     // console.log("array[i][1] is:", array[i][1])
+            
+        //     // check for 1s in an array
+        //     // if (array[i][j] === 0) {
+        //     //     return "You have reached water"
+        //     // } else {
+        //     //     // islandTestC()
+        //     // }
+
+        // }
 
 
     }
@@ -111,17 +117,28 @@ const islandTestC = function (array) {
     // Consider all 1's in an array AND in adjacent arrays to be a single land mass
 }
 
-const landCheck = function (arrayValue) {
-    console.log("arrayValue is:", arrayValue[1])
-    const landCount = 0
-    const rightValue = 0
-    if (arrayValue[i][j] === 0 ) {
-        console.log("Recursive function result is: ", landCount.length)
-        return landCount.length
+
+
+let landCount = 0
+const landCheck = function (arrayi, j) {
+    // console.log("arrayValue is:", array[1])
+    
+    console.log("arrayi is:", arrayi)
+    console.log("j is: ", j)
+    console.log("arrayi[j] is: ", arrayi[j])
+
+    if (arrayi[j] === 0 ) {
+        console.log("arrayi[j] in the if statement is: ", arrayi[j])
+        console.log("Recursive function result is: ", landCount)
+        return landCount
     } else {
-        landCheck(arrayValue[i][rightValue + 1])
+        landCount = landCount + 1
+        console.log("landCount is: ", landCount)
+        landCheck(arrayi, [++j])
     }
 }
+
+landCheck(islandArray[1], 0)
 
 console.log(islandTestC(islandArray))
 
